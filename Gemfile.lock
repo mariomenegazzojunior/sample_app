@@ -29,8 +29,12 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
+<<<<<<< HEAD
     annotate (2.5.0)
       rake
+=======
+    annotate (2.4.1.beta1)
+>>>>>>> sign-up
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.0.0)
@@ -169,7 +173,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   annotate (= 2.5.0)
+=======
+  annotate (~> 2.4.1.beta)
+>>>>>>> sign-up
   bcrypt-ruby (= 3.0.1)
   bootstrap-sass (= 2.0.0)
   capybara

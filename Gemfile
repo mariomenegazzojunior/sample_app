@@ -10,8 +10,6 @@ group :development, :test do
    gem 'guard-rspec'
 end
 
-
-
 gem 'json'
 
 # Gems used only for assets and not required
