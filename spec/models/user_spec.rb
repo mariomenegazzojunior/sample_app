@@ -2,34 +2,20 @@
 #
 # Table name: users
 #
-<<<<<<< HEAD
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-=======
 #  id         :integer         not null, primary key
 #  name       :string(255)
 #  email      :string(255)
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
->>>>>>> sign-up
 #
 
 require 'spec_helper'
 
 describe User do
 
-<<<<<<< HEAD
   before do
     @user = User.new(name: "Example User", email: "user@example.com", 
                    password: "foobar", password_confirmation: "foobar")
-=======
-   before do
-    @user = User.new(:name => "Example User", :email => "user@example.com", 
-                     :password => "foobar", :password_confirmation => "foobar")
->>>>>>> sign-up
   end
 
   subject { @user }
@@ -40,12 +26,9 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
-
-<<<<<<< HEAD
+  it { should respond_to(:remember_token) }
   it { should be_valid }
 
-=======
->>>>>>> sign-up
   describe "when name is not present" do
     before { @user.name = " " }
     it { should_not be_valid }
@@ -91,8 +74,6 @@ describe User do
     it { should_not be_valid }
   end
 
-<<<<<<< HEAD
-=======
   describe "when email address is already taken" do
     before do
       user_with_same_email = @user.dup
@@ -103,7 +84,6 @@ describe User do
     it { should_not be_valid }
   end
 
->>>>>>> sign-up
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
@@ -115,13 +95,8 @@ describe User do
   end
 
   describe "when password confirmation is nil" do
-<<<<<<< HEAD
-      before { @user.password_confirmation = nil }
-      it { should_not be_valid }
-=======
     before { @user.password_confirmation = nil }
     it { should_not be_valid }
->>>>>>> sign-up
   end
 
   describe "with a password that's too short" do
@@ -137,7 +112,6 @@ describe User do
       it { should == found_user.authenticate(@user.password) }
     end
 
-<<<<<<< HEAD
     describe "with invalid password" do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
@@ -146,16 +120,10 @@ describe User do
     end
   end
 
-end
- 
-=======
-  describe "with invalid password" do
-    let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
-    it { should_not == user_for_invalid_password }
-    specify { user_for_invalid_password.should be_false }
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 end
-end
->>>>>>> sign-up
+
